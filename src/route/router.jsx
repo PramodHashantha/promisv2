@@ -105,8 +105,8 @@ import PurchaseRequestUploadItems from "../pages/PurchaseRequestUploadItems/Inde
 import QuotationReceivedDetails from "../pages/QuotationReceivedDetails/Index";
 import ProtectedRoute from "./ProtectedRoute";
 import Settings from "../pages/settings/navigation/Index";
-import Timeline from "../pages/timeline/Index"
-import PurchasingRequest from "../pages/purchase-request/create-purchase-request/index"
+import Timeline from "../pages/timeline/Index";
+import PurchasingRequest from "../pages/purchase-request/create-purchase-request/index";
 
 export const router = createBrowserRouter([
   {
