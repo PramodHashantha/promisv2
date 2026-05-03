@@ -7,12 +7,12 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     {
-      name: 'fix-react-apexcharts-proptypes',
+      name: 'fix-react-apexcharts-interop',
       transform(code, id) {
         if (id.includes('react-apexcharts')) {
           return {
             code: code.replace(
-              /\.default\.(string|number|bool|array|object|func|symbol|node|element|any|oneOf|oneOfType|arrayOf|objectOf|instanceOf|shape|exact)\b/g,
+              /\.default\.(Component|PureComponent|createElement|createRef|forwardRef|memo|Fragment|Children|cloneElement|createContext|useCallback|useEffect|useLayoutEffect|useMemo|useReducer|useRef|useState|createFactory|isValidElement|string|number|bool|array|object|func|symbol|node|element|any|oneOf|oneOfType|arrayOf|objectOf|instanceOf|shape|exact)\b/g,
               '.$1'
             ),
             map: null,
