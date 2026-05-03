@@ -7,15 +7,15 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     {
-      name: 'fix-proptypes-interop',
+      name: 'fix-proptypes-default',
       transform(code, id) {
-        if (!id.includes('node_modules')) return;
-        if (!code.includes('.default.')) return;
-        const result = code.replace(
-          /\.default\.(string|number|bool|array|object|func|symbol|node|element|any|oneOf|oneOfType|arrayOf|objectOf|instanceOf|shape|exact)\b/g,
-          '.$1'
-        );
-        return result !== code ? { code: result, map: null } : undefined;
+        if (!id.includes('/prop-types/')) return;
+        // Make prop-types.default = prop-types so both X.string
+        // and X.default.string work regardless of CJS interop variant
+        return {
+          code: code + '\nif(typeof module!=="undefined"&&module.exports&&!module.exports.default)module.exports.default=module.exports;',
+          map: null,
+        };
       },
     },
     mode === "analyze" &&
