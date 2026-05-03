@@ -54,7 +54,7 @@ importers:
         specifier: ^8.20.5
         version: 8.21.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       apexcharts:
-        specifier: 3.46.0
+        specifier: ^3.46.0
         version: 3.46.0
       bootstrap:
         specifier: ^5.3.8
@@ -102,8 +102,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
       react-apexcharts:
-        specifier: ^1.4.1
-        version: 1.7.0(apexcharts@3.46.0)(react@18.3.1)
+        specifier: 1.4.1
+        version: 1.4.1(apexcharts@3.46.0)(react@18.3.1)
       react-calendar:
         specifier: ^5.0.0
         version: 5.1.0(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2346,10 +2346,10 @@ packages:
     resolution: {integrity: sha512-xEYQBqfYx/sfb33VJiKnSJp8ehloavImQ2A6564GAbqG55PGw1dAWUn1MUbQB62t0azawUS2CZZhWCjO8gRvTw==}
     engines: {npm: '>=8.2.3'}
 
-  react-apexcharts@1.7.0:
-    resolution: {integrity: sha512-03oScKJyNLRf0Oe+ihJxFZliBQM9vW3UWwomVn4YVRTN1jsIR58dLWt0v1sb8RwJVHDMbeHiKQueM0KGpn7nOA==}
+  react-apexcharts@1.4.1:
+    resolution: {integrity: sha512-G14nVaD64Bnbgy8tYxkjuXEUp/7h30Q0U33xc3AwtGFijJB9nHqOt1a6eG0WBn055RgRg+NwqbKGtqPxy15d0Q==}
     peerDependencies:
-      apexcharts: '>=4.0.0'
+      apexcharts: ^3.41.0
       react: '>=0.13'
 
   react-calendar@5.1.0:
@@ -5068,7 +5068,7 @@ snapshots:
       parchment: 3.0.0
       quill-delta: 5.1.0
 
-  react-apexcharts@1.7.0(apexcharts@3.46.0)(react@18.3.1):
+  react-apexcharts@1.4.1(apexcharts@3.46.0)(react@18.3.1):
     dependencies:
       apexcharts: 3.46.0
       prop-types: 15.8.1
