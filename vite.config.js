@@ -57,29 +57,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes("node_modules")) {
-            if (id.includes("@mui")) return "mui";
-            if (id.includes("@fullcalendar")) return "fullcalendar";
-            if (id.includes("/apexcharts/") && !id.includes("react-apexcharts"))
-              return "charts";
-            if (id.includes("quill") || id.includes("react-quill")) return "editor";
-            if (id.includes("@tanstack/react-query")) return "tanstack-query";
-            if (id.includes("react-router")) return "router";
-            if (id.includes("bootstrap")) return "bootstrap";
-            if (id.includes("exceljs")) return "exceljs";
-            if (id.includes("sweetalert2")) return "sweetalert2";
-            if (id.includes("framer-motion")) return "framer-motion";
-            if (id.includes("lodash")) return "lodash";
-            if (id.includes("moment")) return "moment";
-            if (id.includes("date-fns")) return "date-fns";
-            return "vendor";
-          }
-        },
-      },
-    },
-    chunkSizeWarningLimit: 900,
+    chunkSizeWarningLimit: 2000,
   },
 }));
