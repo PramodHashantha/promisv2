@@ -29,7 +29,13 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
+  optimizeDeps: {
+    include: ['prop-types', 'react-apexcharts', 'apexcharts'],
+  },
   build: {
+    commonjsOptions: {
+      include: [/prop-types/, /node_modules/],
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {
