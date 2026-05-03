@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => ({
     {
       name: 'fix-proptypes-default',
       transform(code, id) {
-        if (!id.includes('/prop-types/')) return;
+        if (!/[/\\]prop-types[/\\]index\.js$/.test(id)) return;
         // Make prop-types.default = prop-types so both X.string
         // and X.default.string work regardless of CJS interop variant
         return {
