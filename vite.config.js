@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => ({
         // Make prop-types.default = prop-types so both X.string
         // and X.default.string work regardless of CJS interop variant
         return {
-          code: code + '\nif(typeof module!=="undefined"&&module.exports&&!module.exports.default)module.exports.default=module.exports;',
+          code: code + '\nif(typeof module!=="undefined"&&module.exports&&typeof module.exports==="object"&&!module.exports.default)module.exports.default=module.exports;',
           map: null,
         };
       },
