@@ -54,8 +54,8 @@ importers:
         specifier: ^8.20.5
         version: 8.21.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       apexcharts:
-        specifier: ^3.52.0
-        version: 3.54.1
+        specifier: 3.46.0
+        version: 3.46.0
       bootstrap:
         specifier: ^5.3.8
         version: 5.3.8(@popperjs/core@2.11.8)
@@ -103,7 +103,7 @@ importers:
         version: 18.3.1
       react-apexcharts:
         specifier: ^1.4.1
-        version: 1.7.0(apexcharts@3.54.1)(react@18.3.1)
+        version: 1.7.0(apexcharts@3.46.0)(react@18.3.1)
       react-calendar:
         specifier: ^5.0.0
         version: 5.1.0(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1123,8 +1123,8 @@ packages:
     resolution: {integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==}
     engines: {node: '>=8'}
 
-  apexcharts@3.54.1:
-    resolution: {integrity: sha512-E4et0h/J1U3r3EwS/WlqJCQIbepKbp6wGUmaAwJOMjHUP4Ci0gxanLa7FR3okx6p9coi4st6J853/Cb1NP0vpA==}
+  apexcharts@3.46.0:
+    resolution: {integrity: sha512-ELAY6vj8JQD7QLktKasTzwm9Wt0qxqfQSo+3QWS7G7I774iK8HCkG1toGsqJH0mkK6PtYBtnSIe66uUcwoCw1w==}
 
   archiver-utils@2.1.0:
     resolution: {integrity: sha512-bEL/yUb/fNNiNTuUz979Z0Yg5L+LzLxGJz8x79lYmR54fmTIb6ob/hNQgkQnIUDWIFjZVQwl9Xs356I6BAMHfw==}
@@ -3707,7 +3707,7 @@ snapshots:
     dependencies:
       color-convert: 2.0.1
 
-  apexcharts@3.54.1:
+  apexcharts@3.46.0:
     dependencies:
       '@yr/monotone-cubic-spline': 1.0.3
       svg.draggable.js: 2.2.2
@@ -5068,9 +5068,9 @@ snapshots:
       parchment: 3.0.0
       quill-delta: 5.1.0
 
-  react-apexcharts@1.7.0(apexcharts@3.54.1)(react@18.3.1):
+  react-apexcharts@1.7.0(apexcharts@3.46.0)(react@18.3.1):
     dependencies:
-      apexcharts: 3.54.1
+      apexcharts: 3.46.0
       prop-types: 15.8.1
       react: 18.3.1
 
