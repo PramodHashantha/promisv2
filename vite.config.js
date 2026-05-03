@@ -6,6 +6,20 @@ import { visualizer } from "rollup-plugin-visualizer";
 export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
+    {
+      name: 'fix-react-apexcharts-proptypes',
+      transform(code, id) {
+        if (id.includes('react-apexcharts')) {
+          return {
+            code: code.replace(
+              /\.default\.(string|number|bool|array|object|func|symbol|node|element|any|oneOf|oneOfType|arrayOf|objectOf|instanceOf|shape|exact)\b/g,
+              '.$1'
+            ),
+            map: null,
+          };
+        }
+      },
+    },
     mode === "analyze" &&
       visualizer({
         filename: "dist/stats.html",
@@ -29,13 +43,7 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
-  optimizeDeps: {
-    include: ['prop-types', 'react-apexcharts', 'apexcharts'],
-  },
   build: {
-    commonjsOptions: {
-      include: [/prop-types/, /node_modules/],
-    },
     rollupOptions: {
       output: {
         manualChunks(id) {
