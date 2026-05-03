@@ -1,0 +1,32 @@
+// /*
+// <--!----------------------------------------------------------------!-->
+// <--! Badge SCSS Start !-->
+// <--!----------------------------------------------------------------!-->
+// */
+// .badge {
+// 	font-size: $font-11;
+// 	font-weight: $font-600;
+// 	padding: 5px 6px;
+// 	border-radius: 3px;
+
+// 	@each $color, $value in $theme-colors {
+// 		&.bg-light-#{$color} {
+// 			color: $value;
+// 			background: shift-color($value, $soft-bg-level);
+// 			border-color: shift-color($value, $soft-bg-level);
+// 		}
+
+// 		&.badge-status-#{$color} {
+// 			color: darken($value, 15%);
+// 			background-color: mix($value, white, 10%);
+// 			/* 10% base color mixed with 90% white */
+// 			border: 1px solid mix($value, white, 40%);
+// 			/* 40% base color mixed with 60% white */
+// 			border-radius: 50rem;
+// 			display: inline-flex;
+// 			align-items: center;
+// 			padding: 4px 12px;
+// 			font-weight: 500;
+// 		}
+// 	}
+// }

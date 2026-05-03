@@ -1,0 +1,325 @@
+@import "../../../../public/assets/scss/themes/bs-custom-variables";
+@import "public/assets/scss/themes/_variables.scss";
+
+// Items Table Container
+.items-table-container {
+    overflow-x: auto;
+    max-height: 60vh;
+    border: 1px solid $gray-900;
+}
+
+// Enhanced Items Table Styles
+.ceb-items {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+    margin: 0;
+
+    th,
+    td {
+        border: 1px solid $gray-900;
+        padding: 10px 12px;
+        vertical-align: middle;
+    }
+
+    th {
+        background: #f8f9fa;
+        font-weight: 600;
+        font-size: 14px;
+        color: $gray-800;
+        white-space: nowrap;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    tbody tr {
+        &:hover {
+            background-color: #f1f5f9;
+        }
+    }
+
+    .item-row {
+        td {
+            font-size: 13px;
+        }
+
+        &:nth-child(even) {
+            background-color: #fafbfc;
+        }
+    }
+
+    // Column specific styles
+    .item-number-col {
+        width: 18%;
+    }
+
+    .description-col {
+        width: 42%;
+        max-width: 0;
+    }
+
+    .quantity-col,
+    .unit-price-col,
+    .total-col {
+        width: 13%;
+        white-space: nowrap;
+    }
+
+    .description-cell {
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .totals-row {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        font-size: 14px;
+        border-top: 3px double $gray-900;
+
+        td {
+            padding: 12px;
+            font-weight: 700;
+            color: $gray-900;
+        }
+
+        .totals-total {
+            color: #1e40af;
+            font-size: 16px;
+        }
+    }
+}
+
+// Summary Bar
+.summary-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding: 15px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 1px solid $gray-300;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: $gray-800;
+
+    .summary-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .summary-label {
+        font-size: 12px;
+        color: $gray-600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .summary-value {
+        font-size: 16px;
+        font-weight: 700;
+        color: $gray-900;
+    }
+}
+
+// Empty State
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    color: $gray-500;
+    text-align: center;
+
+    .empty-icon {
+        font-size: 48px;
+        margin-bottom: 16px;
+        opacity: 0.5;
+    }
+
+    .empty-message {
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+
+// Action Buttons
+.actions-bar {
+    border-top: 2px solid $gray-300;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-top: 24px;
+    gap: 16px;
+
+    .actions-left {
+        display: flex;
+        gap: 12px;
+    }
+
+    .actions-right {
+        display: flex;
+        gap: 12px;
+    }
+
+    .btn-close {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        background: $gray-600;
+        color: white;
+        font-weight: 500;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+
+        &:hover {
+            background: $gray-700;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+}
+
+// Responsive improvements
+@media (max-width: 1024px) {
+    .modal-content-new {
+        min-width: 90vw;
+        padding: 15px;
+    }
+
+    .ceb-items {
+        min-width: 650px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-content-new {
+        min-width: 95vw;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .ceb-items {
+        min-width: 100%;
+        font-size: 12px;
+
+        th,
+        td {
+            padding: 6px 4px;
+        }
+    }
+
+    .items-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .summary-bar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .actions-bar {
+        flex-direction: column;
+        gap: 12px;
+
+        .btn-close {
+            width: 100%;
+            padding: 12px;
+        }
+    }
+}
+
+// Print Styles
+@media print {
+    .modal-overlay-new {
+        background: none !important;
+    }
+
+    .modal-content-new {
+        box-shadow: none !important;
+        border: 1px solid $gray-900 !important;
+        max-width: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .modal-close,
+    .actions-bar {
+        display: none !important;
+    }
+
+    .ceb-items {
+        min-width: auto !important;
+        font-size: 10px;
+
+        th,
+        td {
+            padding: 4px 2px;
+            border: 1px solid $gray-900 !important;
+        }
+    }
+
+    .summary-bar {
+        background: none !important;
+        border: 2px solid $gray-900 !important;
+    }
+}
+
+// Dark Mode Updates
+html.app-skin-dark {
+    .ceb-items {
+        th {
+            background: darken($dark-theme-color-darker, 5%) !important;
+            color: $gray-200 !important;
+        }
+
+        .item-row:nth-child(even) {
+            background: $dark-theme-color-dark !important;
+        }
+
+        .totals-row {
+            background: linear-gradient(135deg, darken($dark-theme-color-dark, 3%) 0%, darken($dark-theme-color-darker, 2%) 100%) !important;
+            color: $gray-100 !important;
+
+            .totals-total {
+                color: #60a5fa !important;
+            }
+        }
+    }
+
+    .summary-bar {
+        background: linear-gradient(135deg, darken($dark-theme-color-dark, 2%) 0%, $dark-theme-color-darker 100%) !important;
+        border-color: $dark-theme-color-border !important;
+        color: $gray-200 !important;
+
+        .summary-value {
+            color: $gray-100 !important;
+        }
+    }
+
+    .empty-state {
+        color: $gray-400 !important;
+    }
+
+    .btn-close {
+        background: $gray-700 !important;
+
+        &:hover {
+            background: $gray-600 !important;
+        }
+    }
+}

@@ -1,0 +1,204 @@
+@import '../variables';
+
+.table-container-skeleton {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .entries-select,
+    .search-input,
+    .search-btn {
+      background: #ced4da;
+      height: 30px;
+      border-radius: 4px;
+      animation: pulse 1.5s infinite;
+    }
+
+    .entries-select {
+      width: 60px;
+    }
+
+    .search-bar-skeleton {
+      display: flex;
+      align-items: center;
+
+      .search-input {
+        width: 150px;
+        margin-right: 10px;
+      }
+
+      .search-btn-skeleton {
+        width: 70px;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th .skeleton-box,
+    td .skeleton-box {
+      background: #ced4da;
+      height: 20px;
+      border-radius: 4px;
+      animation: pulse 1.5s infinite;
+    }
+
+    th .skeleton-box {
+      width: 50px;
+    }
+
+    .btn-skeleton {
+      width: 60px;
+      height: 30px;
+    }
+  }
+
+  .table-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    .footer-text {
+      width: 150px;
+      height: 20px;
+      background: #ced4da;
+      border-radius: 4px;
+      animation: pulse 1.5s infinite;
+    }
+
+    .pagination {
+      display: flex;
+      align-items: center;
+
+      .pag-btn-skeleton {
+        width: 70px;
+        height: 30px;
+        background: #ced4da;
+        border-radius: 4px;
+        animation: pulse 1.5s infinite;
+        margin: 0 5px;
+      }
+
+      .pag-text {
+        width: 30px;
+        height: 20px;
+        background: #ced4da;
+        border-radius: 4px;
+        animation: pulse 1.5s infinite;
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+// Dark Theme
+html {
+  &.app-skin-dark {
+    .table-container-skeleton {
+          background: $dark-theme-color-darker !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+          
+            .table-header {
+          
+              .entries-select,
+              .search-input,
+              .search-btn {
+                background: lighten($dark-theme-color-dark, 6) !important;
+                animation: pulse 1.5s infinite;
+              }
+          
+              .search-bar-skeleton {
+                .search-btn-skeleton {
+                  background: $primary !important;
+                }
+              }
+            }
+          
+            table {
+          
+              th,
+              td {
+                border-bottom: 1px solid $dark-theme-color-border !important;
+              }
+          
+              th .skeleton-box,
+              td .skeleton-box {
+                background: lighten($dark-theme-color-dark, 6) !important;
+                animation: pulse 1.5s infinite;
+              }
+          
+              .btn-skeleton {
+                background: $primary !important;
+                width: 60px;
+                height: 30px;
+              }
+            }
+          
+            .table-footer {
+              .footer-text {
+                background: lighten($dark-theme-color-dark, 6) !important;
+                animation: pulse 1.5s infinite;
+              }
+          
+              .pagination {
+                .pag-btn-skeleton {
+                  background: lighten($dark-theme-color-dark, 6) !important;
+                  animation: pulse 1.5s infinite;
+          
+                  &:nth-child(3) {
+                    background: $primary !important;
+                  }
+                }
+          
+                .pag-text {
+                  background: lighten($dark-theme-color-dark, 6) !important;
+                  animation: pulse 1.5s infinite;
+                }
+              }
+            }
+      }
+    
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+        }
+    
+        50% {
+          opacity: 0.6;
+        }
+    
+        100% {
+          opacity: 1;
+        }
+      }
+}
+}

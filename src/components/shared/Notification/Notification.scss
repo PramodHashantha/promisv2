@@ -1,0 +1,275 @@
+/* Toast Container Positioning */
+.toast-container-custom {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    pointer-events: none;
+    gap: 12px;
+
+    >* {
+        pointer-events: auto;
+    }
+}
+
+/* Toast Card Base Styles */
+.toast-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    width: 350px;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06),
+        0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: right center;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    // Light Mode Defaults
+    background: rgba(255, 255, 255, 0.95);
+    color: #334155;
+    /* Slate 700 */
+
+    /* Left Border Accent */
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        /* create a rectangle, let parent clip it */
+        z-index: 5;
+    }
+}
+
+/* Animations */
+.toast-enter {
+    transform: translateX(100%) scale(0.95);
+    opacity: 0;
+}
+
+.toast-enter-active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+}
+
+.toast-exit {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+}
+
+.toast-exit-active {
+    transform: translateX(120%) scale(0.95);
+    opacity: 0;
+}
+
+/* Icons */
+.toast-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Progress Bar */
+.toast-progress-track {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    /* Increased height slightly for better visibility against border */
+    background: rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    z-index: 10;
+}
+
+.toast-progress-bar {
+    height: 100%;
+    transition: width linear;
+    /* Bar itself is a rectangle, clipped by parent container */
+}
+
+/* Close Button */
+.toast-close {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    /* Slate 400 */
+    transition: color 0.2s;
+    padding: 2px;
+    margin-left: auto;
+
+    &:hover {
+        color: #64748b;
+        /* Slate 500 */
+    }
+}
+
+/* 
+   Type Specific Styles 
+   Using Mixins or direct selectors
+*/
+.toast-success {
+    .toast-icon {
+        color: #10b981;
+    }
+
+    &::before {
+        background-color: #10b981;
+    }
+
+    .toast-progress-bar {
+        background-color: #10b981;
+    }
+}
+
+.toast-error {
+    .toast-icon {
+        color: #ef4444;
+    }
+
+    &::before {
+        background-color: #ef4444;
+    }
+
+    .toast-progress-bar {
+        background-color: #ef4444;
+    }
+}
+
+.toast-warning {
+    .toast-icon {
+        color: #f59e0b;
+    }
+
+    &::before {
+        background-color: #f59e0b;
+    }
+
+    .toast-progress-bar {
+        background-color: #f59e0b;
+    }
+}
+
+.toast-info {
+    .toast-icon {
+        color: #3b82f6;
+    }
+
+    &::before {
+        background-color: #3b82f6;
+    }
+
+    .toast-progress-bar {
+        background-color: #3b82f6;
+    }
+}
+
+
+/* 
+   DARK MODE OVERRIDES 
+   Using the requested html structure
+*/
+html {
+    &.app-skin-dark {
+        .toast-card {
+            background: rgba(15, 23, 42, 0.9);
+            /* Slate 900 */
+            color: #e2e8f0;
+            /* Slate 200 */
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.3),
+                0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        .toast-progress-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Brighter Icons and Accents for Dark Mode */
+        .toast-success {
+            .toast-icon {
+                color: #34d399;
+            }
+
+            /* Emerald 400 */
+            &::before {
+                background-color: #34d399;
+            }
+
+            .toast-progress-bar {
+                background-color: #34d399;
+            }
+        }
+
+        .toast-error {
+            .toast-icon {
+                color: #f87171;
+            }
+
+            /* Red 400 */
+            &::before {
+                background-color: #f87171;
+            }
+
+            .toast-progress-bar {
+                background-color: #f87171;
+            }
+        }
+
+        .toast-warning {
+            .toast-icon {
+                color: #fbbf24;
+            }
+
+            /* Amber 400 */
+            &::before {
+                background-color: #fbbf24;
+            }
+
+            .toast-progress-bar {
+                background-color: #fbbf24;
+            }
+        }
+
+        .toast-info {
+            .toast-icon {
+                color: #60a5fa;
+            }
+
+            /* Blue 400 */
+            &::before {
+                background-color: #60a5fa;
+            }
+
+            .toast-progress-bar {
+                background-color: #60a5fa;
+            }
+        }
+
+        /* Close Button Contrast */
+        .toast-close {
+            color: #cbd5e1;
+            /* Slate 300 - Much brighter */
+
+            &:hover {
+                color: #ffffff;
+                /* White on hover */
+            }
+        }
+    }
+}

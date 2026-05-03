@@ -1,0 +1,448 @@
+@import "../../../../public/assets/scss/themes/bs-custom-variables";
+@import "../../../../public/assets/scss/themes/_variables.scss";
+
+.store-out-detail {
+
+    // Stock Issue Card
+    .sod-card {
+        border-radius: 12px;
+        border: 1px solid $border-color-2;
+        background: $white;
+        overflow: hidden;
+        transition: all 0.3s ease;
+
+        .sod-card-header {
+            background: $white;
+            border-bottom: 1px solid $border-color-2;
+            border-top-right-radius: 12px;
+            border-top-left-radius: 12px;
+            padding: 1.5rem; // Adjusted padding
+
+            h5 {
+                color: $dark;
+                font-weight: 700;
+            }
+
+            p {
+                color: $dark;
+                font-weight: 500;
+                font-size: 1rem;
+            }
+
+            .badge-req {
+                background: $gray-200;
+                border: 1px solid $border-color-2;
+                color: $dark;
+                font-weight: 700;
+            }
+        }
+
+        .sod-card-body {
+            background: #f8f9fa;
+        }
+
+        .sod-sidebar {
+            background: $white;
+            border: 1px solid $border-color-2;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .sod-progress {
+            border-top: 1px solid $border-color-2;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+
+            .sod-progress-label {
+                color: $text-muted;
+            }
+
+            .sod-progress-value {
+                color: $dark;
+                font-weight: 700;
+            }
+        }
+
+        .sod-inventory-card {
+            border: 1px solid $border-color-2;
+            background: $white;
+            transition: all 0.2s ease;
+
+            &.expanded {
+                border-color: #4F46E5;
+
+                .sod-card-header {
+                    border-bottom: 2px solid #4F46E5;
+                }
+            }
+
+            .sod-card-header {
+                background: $white;
+                cursor: pointer;
+                border-bottom: 1px solid $border-color-2;
+                padding: 0.75rem 1rem;
+            }
+
+            .sod-card-body-table {
+                background: $white;
+            }
+
+            thead {
+                background: #f8f9fa;
+            }
+        }
+
+        .sod-card-footer {
+            background: $white;
+            border-top: 1px solid $border-color-2;
+        }
+
+        .sod-table-active {
+            position: relative;
+            background-color: #e0e7ff !important; // Indigo-50
+
+            &>* {
+                background-color: #e0e7ff !important;
+                box-shadow: inset 0 0 0 9999px #e0e7ff !important; // Force overrides
+            }
+
+            &:hover>* {
+                background-color: #c7d2fe !important; // Indigo-100
+                box-shadow: inset 0 0 0 9999px #c7d2fe !important;
+            }
+        }
+
+
+    }
+
+    // Input Styles override
+    .form-select,
+    .form-control {
+        background-color: $white;
+        border-color: $border-color-2;
+        color: $dark;
+
+        &:focus {
+            border-color: #4F46E5;
+            box-shadow: 0 0 0 0.25rem rgba(79, 70, 229, 0.25);
+        }
+    }
+}
+
+// Dark Mode Overrides
+html.app-skin-dark {
+    color-scheme: dark;
+
+    .store-out-detail {
+        .sod-card {
+            background: $dark-theme-color-darker; // Deep dark background
+            border-color: $dark-theme-color-border;
+
+            .sod-card-header {
+                background: $dark-theme-color-darker;
+                border-bottom-color: $dark-theme-color-border;
+
+                h5,
+                p {
+                    color: $gray-200;
+                }
+
+                .text-muted {
+                    color: $gray-500 !important;
+                }
+
+                .badge-req {
+                    background: lighten($dark-theme-color-dark, 5%);
+                    border-color: $dark-theme-color-border;
+                    color: $gray-200;
+                }
+            }
+
+            .sod-card-body {
+                background: $dark-theme-color-dark; // Slightly lighter for contrast
+            }
+
+            .sod-sidebar {
+                background: $dark-theme-color-darker;
+                border-color: $dark-theme-color-border;
+
+                label {
+                    color: $gray-400 !important;
+                }
+            }
+
+            .sod-progress {
+                border-top-color: $dark-theme-color-border;
+
+                .sod-progress-label {
+                    color: $gray-400;
+                }
+
+                .sod-progress-value {
+                    color: $gray-200;
+                }
+
+                .progress {
+                    background: $gray-700 !important;
+                }
+            }
+
+            .sod-inventory-card {
+                background: $dark-theme-color-darker;
+                border-color: $dark-theme-color-border;
+
+                &.expanded {
+                    border-color: #6366f1; // Lighter indigo for dark mode
+
+                    .sod-card-header {
+                        border-bottom-color: #6366f1;
+                    }
+                }
+
+                .sod-card-header {
+                    background: $dark-theme-color-darker;
+                    border-bottom-color: $dark-theme-color-border;
+
+                    .fw-bold {
+                        color: $gray-200;
+                    }
+
+                    .text-muted {
+                        color: $gray-500 !important;
+                    }
+                }
+
+                .sod-card-body-table {
+                    background: $dark-theme-color-darker;
+                }
+
+                .table {
+                    color: $gray-300;
+
+                    thead {
+                        background: lighten($dark-theme-color-dark, 5%); // Slightly lighter header
+                        color: $gray-200;
+
+                        th {
+                            background: transparent; // Let thead bg show
+                            color: $gray-200;
+                            border-bottom: 1px solid $dark-theme-color-border;
+                        }
+                    }
+
+                    td {
+                        border-bottom: 1px solid $dark-theme-color-border;
+
+                        input.form-control {
+                            background: $dark-theme-color-dark;
+                            border: 1px solid $dark-theme-color-border;
+                            color: $white;
+                        }
+                    }
+                }
+
+                .sod-card-body.text-muted {
+                    color: $gray-500 !important;
+                }
+            }
+
+            .sod-card-footer {
+                background: $dark-theme-color-darker; // or dark
+                border-top-color: $dark-theme-color-border;
+
+                .text-muted {
+                    color: $gray-400 !important;
+                }
+
+                .text-danger {
+                    color: #f87171 !important; // Lighter red
+                }
+            }
+
+            // Dark Mode Table Hover Fix
+            // Unique Table Styles
+            .sod-table {
+                tbody tr:hover {
+                    --bs-table-accent-bg: rgba(79, 70, 229, 0.1);
+                    background-color: rgba(79, 70, 229, 0.1) !important;
+                    color: $gray-200 !important;
+
+                    td {
+                        box-shadow: none !important;
+                        color: $gray-200 !important;
+                        background-color: transparent !important;
+                    }
+                }
+            }
+
+            .sod-table-active {
+                background-color: rgba(79, 70, 229, 0.25) !important;
+
+                &>* {
+                    background-color: rgba(79, 70, 229, 0.25) !important;
+                    color: $gray-200 !important;
+                    box-shadow: none !important;
+                    border-color: $dark-theme-color-border !important;
+                }
+
+                &:hover>* {
+                    background-color: rgba(79, 70, 229, 0.35) !important;
+                }
+            }
+        }
+
+        // Form elements in Dark Mode
+        .form-select,
+        .form-control {
+            background-color: $dark-theme-color-dark;
+            border-color: $dark-theme-color-border;
+            color: $gray-200;
+            color-scheme: dark;
+
+            option {
+                background-color: $dark-theme-color-dark;
+                color: $gray-200;
+            }
+
+            &:disabled {
+                background-color: darken($dark-theme-color-dark, 5%);
+                color: $gray-500;
+            }
+        }
+
+        .sod-select {
+            color-scheme: dark;
+            background-color: $dark-theme-color-dark !important;
+            border-color: $dark-theme-color-border !important;
+            color: $gray-200 !important;
+        }
+
+        // Bin Inventory Title
+        h5.text-dark {
+            color: $gray-200 !important;
+        }
+
+        .sod-text-brand {
+            color: #818cf8 !important;
+        }
+
+        .sod-bg-brand {
+            background-color: #818cf8 !important;
+        }
+
+        .sod-border-brand {
+            border-color: #818cf8 !important;
+        }
+
+        .sod-btn-brand {
+            background-color: #6366f1;
+            border-color: #6366f1;
+
+            &:hover {
+                background-color: #4f46e5;
+            }
+
+            &:disabled {
+                background-color: rgba(99, 102, 241, 0.5);
+                color: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+}
+
+// Brand Utilities (Light Mode Defaults)
+.store-out-detail {
+    .sod-text-brand {
+        color: #4F46E5 !important;
+    }
+
+    .sod-bg-brand {
+        background-color: #4F46E5 !important;
+    }
+
+    .sod-border-brand {
+        border-color: #4F46E5 !important;
+    }
+
+    .sod-btn-brand {
+        background-color: #4F46E5;
+        border-color: #4F46E5;
+        color: $white;
+
+        &:hover {
+            background-color: darken(#4F46E5, 5%);
+        }
+
+        &:disabled {
+            background-color: lighten(#4F46E5, 20%);
+            border-color: transparent;
+        }
+    }
+}
+
+// Custom Dropdown Styles
+.store-out-detail {
+    .position-relative {
+        .sod-dropdown-menu {
+            display: block; // Force show when rendered
+            border: 1px solid $border-color-2;
+            background: $white;
+            max-height: 250px;
+            overflow-y: auto;
+            border-radius: 0.5rem;
+            z-index: 1050;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+            .list-group-item {
+                border: none;
+                border-bottom: 1px solid $border-color-2;
+                padding: 0.75rem 1rem;
+                cursor: pointer;
+                transition: background 0.2s;
+                background: $white;
+                color: $dark;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                &:hover {
+                    background-color: #f3f4f6; // Gray-100
+                    color: #4F46E5; // Brand color text
+                }
+
+                &.active-item {
+                    background-color: #e0e7ff; // Indigo-50
+                    color: #4F46E5;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+html.app-skin-dark .store-out-detail {
+    .position-relative {
+        .sod-dropdown-menu {
+            border: 1px solid $dark-theme-color-border;
+            background: $dark-theme-color-darker;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+
+            .list-group-item {
+                background: $dark-theme-color-darker;
+                border-color: $dark-theme-color-border;
+                color: $gray-200;
+
+                &:hover {
+                    background-color: rgba(79, 70, 229, 0.2) !important;
+                    color: #818cf8 !important;
+                }
+
+                &.active-item {
+                    background-color: rgba(79, 70, 229, 0.25);
+                    color: #818cf8;
+                }
+            }
+        }
+    }
+}
